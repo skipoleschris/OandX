@@ -29,18 +29,18 @@ class Grid {
   }
 
   override def toString = {
-    val sb = new StringBuilder
+    var sb = ""
     for ( row <- 0 to 2 ) {
-        sb ++ "   |   |   \n"
+        sb = sb + "   |   |   \n"
         for ( col <- 0 to 2 ) {
-            sb ++ " "
-            if ( values(row)(col) == null ) sb ++ " "
-            else sb ++ Token.symbol(values(row)(col))
-            sb ++ " "
-            if ( col < 2 ) sb ++ "|"
+            sb =sb + " "
+            if ( values(row)(col) == null ) sb = sb + " "
+            else sb = sb + Token.symbol(values(row)(col))
+            sb = sb + " "
+            if ( col < 2 ) sb = sb + "|"
         }
-        sb ++ "\n   |   |   \n"
-        if ( row < 2 ) sb ++ "-----------\n"
+        sb = sb + "\n   |   |   \n"
+        if ( row < 2 ) sb = sb + "-----------\n"
     }
     sb.toString
   }

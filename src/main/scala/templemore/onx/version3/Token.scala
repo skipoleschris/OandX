@@ -12,4 +12,9 @@ object Token extends Enumeration {
     case Nought => "O"
     case _ => "X"
   }
+
+  def flip(token: Token) = {
+    if ( token == Nought ) Cross
+    else Nought
+  }
 }

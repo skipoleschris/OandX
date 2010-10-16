@@ -84,7 +84,7 @@ public class MoveFinder {
             }
         }
 
-        final Set<Position> emptyLinePositions = filterAllPositionsOnEmptyLines(lines);
+        final List<Position> emptyLinePositions = filterAllPositionsOnEmptyLines(lines);
         Position firstMatch = null;
         for ( final Line line : candidates ) {
             for ( final Position position : line.getEmptyPositions() ) {
@@ -97,7 +97,7 @@ public class MoveFinder {
     }
 
     private Position findEmptyLinePosition(final Line[] lines, final Token token) {
-        final Set<Position> emptyLinePositions = filterAllPositionsOnEmptyLines(lines);
+        final List<Position> emptyLinePositions = filterAllPositionsOnEmptyLines(lines);
 
         if ( startWithRandom && emptyLinePositions.size() > 5 ) {
             // Introduce some randomness
@@ -117,7 +117,7 @@ public class MoveFinder {
     }
 
     private Position findBestEmptyPosition(final Line[] lines, final Token token) {
-        final Set<Position> emptyPositions = new HashSet<Position>();
+        final List<Position> emptyPositions = new ArrayList<Position>();
         for ( final Line line : lines ) {
             emptyPositions.addAll(Arrays.asList(line.getEmptyPositions()));
         }
@@ -147,8 +147,8 @@ public class MoveFinder {
         return result.toArray(new Line[result.size()]);
     }
 
-    private Set<Position> filterAllPositionsOnEmptyLines(final Line[] lines) {
-        final Set<Position> result = new HashSet<Position>();
+    private List<Position> filterAllPositionsOnEmptyLines(final Line[] lines) {
+        final List<Position> result = new ArrayList<Position>();
         for ( final Line line : lines ) {
             if ( line.hasThreeEmptySpaces() ) {
                 result.addAll(Arrays.asList(line.getEmptyPositions()));

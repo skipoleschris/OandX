@@ -2,19 +2,21 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="5aa7ad72-180c-4683-aedb-ec9fb751d795" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/test/scala/templemore/onx/version2/GridSpec.scala" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/test/scala/templemore/onx/version2/MoveFinderSpec.scala" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/test/scala/templemore/onx/version2/PositionSpec.scala" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/test/scala/templemore/onx/version2/WinScannerSpec.scala" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/scala/templemore/onx/version3/MoveFinder.scala" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/scala/templemore/onx/version3/WinScanner.scala" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/test/scala/templemore/onx/version3/MoveFinderSpec.scala" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/test/scala/templemore/onx/version3/OandX.scala" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/test/scala/templemore/onx/version3/WinScannerSpec.scala" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/templemore/onx/version1/MoveFinder.java" afterPath="$PROJECT_DIR$/src/main/java/templemore/onx/version1/MoveFinder.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/templemore/onx/version1/OandX.java" afterPath="$PROJECT_DIR$/src/main/java/templemore/onx/version1/OandX.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/templemore/onx/version1/Position.java" afterPath="$PROJECT_DIR$/src/main/java/templemore/onx/version1/Position.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/test/java/templemore/onx/version1/MoveFinderTest.java" afterPath="$PROJECT_DIR$/src/test/java/templemore/onx/version1/MoveFinderTest.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/test/scala/templemore/onx/version2/GridSpec.scala" afterPath="$PROJECT_DIR$/src/test/scala/templemore/onx/version2/GridSpec.scala" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/test/scala/templemore/onx/version2/MoveFinderSpec.scala" afterPath="$PROJECT_DIR$/src/test/scala/templemore/onx/version2/MoveFinderSpec.scala" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/test/scala/templemore/onx/version2/PositionSpec.scala" afterPath="$PROJECT_DIR$/src/test/scala/templemore/onx/version2/PositionSpec.scala" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/test/scala/templemore/onx/version2/WinScannerSpec.scala" afterPath="$PROJECT_DIR$/src/test/scala/templemore/onx/version2/WinScannerSpec.scala" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/templemore/onx/version2/MoveFinder.java" afterPath="$PROJECT_DIR$/src/main/java/templemore/onx/version2/MoveFinder.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/scala/templemore/onx/version3/Grid.scala" afterPath="$PROJECT_DIR$/src/main/scala/templemore/onx/version3/Grid.scala" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/scala/templemore/onx/version3/MoveFinder.scala" afterPath="$PROJECT_DIR$/src/main/scala/templemore/onx/version3/MoveFinder.scala" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/scala/templemore/onx/version3/Token.scala" afterPath="$PROJECT_DIR$/src/main/scala/templemore/onx/version3/Token.scala" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/scala/templemore/onx/version3/WinScanner.scala" afterPath="$PROJECT_DIR$/src/main/scala/templemore/onx/version3/WinScanner.scala" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/test/scala/templemore/onx/version3/MoveFinderSpec.scala" afterPath="$PROJECT_DIR$/src/test/scala/templemore/onx/version3/MoveFinderSpec.scala" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/test/scala/templemore/onx/version3/OandX.scala" afterPath="$PROJECT_DIR$/src/test/scala/templemore/onx/version3/OandX.scala" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/test/scala/templemore/onx/version3/WinScannerSpec.scala" afterPath="$PROJECT_DIR$/src/test/scala/templemore/onx/version3/WinScannerSpec.scala" />
     </list>
     <ignored path="onx.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -26,7 +28,7 @@
   </component>
   <component name="ChangesViewManager" flattened_view="true" show_ignored="false" />
   <component name="CoverageDataManager">
-    <SUITE FILE_PATH="coverage/onx$Version_1_Tests.ic" NAME="Version 1 Tests Coverage Results" MODIFIED="1287173416733" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+    <SUITE FILE_PATH="coverage/onx$Version_1_Tests.ic" NAME="Version 1 Tests Coverage Results" MODIFIED="1287266830608" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
       <FILTER>templemore.onx.version1.*</FILTER>
     </SUITE>
   </component>
@@ -40,6 +42,19 @@
   <component name="DebuggerManager">
     <line_breakpoints>
       <breakpoint url="file://$PROJECT_DIR$/src/main/java/templemore/onx/version2/Grid.java" line="77" class="templemore.onx.version2.Grid" package="templemore.onx.version2">
+        <option name="ENABLED" value="true" />
+        <option name="LOG_ENABLED" value="false" />
+        <option name="LOG_EXPRESSION_ENABLED" value="false" />
+        <option name="SUSPEND_POLICY" value="SuspendAll" />
+        <option name="COUNT_FILTER_ENABLED" value="false" />
+        <option name="COUNT_FILTER" value="0" />
+        <option name="CONDITION_ENABLED" value="false" />
+        <option name="CLASS_FILTERS_ENABLED" value="false" />
+        <option name="INSTANCE_FILTERS_ENABLED" value="false" />
+        <option name="CONDITION" value="" />
+        <option name="LOG_MESSAGE" value="" />
+      </breakpoint>
+      <breakpoint url="file://$PROJECT_DIR$/src/test/scala/templemore/onx/version3/MoveFinderSpec.scala" line="144" class="Class at MoveFinderSpec.scala:144" package="">
         <option name="ENABLED" value="true" />
         <option name="LOG_ENABLED" value="false" />
         <option name="LOG_EXPRESSION_ENABLED" value="false" />
@@ -92,80 +107,124 @@
     <favorites_list name="onx" />
   </component>
   <component name="FileEditorManager">
-    <leaf>
-      <file leaf-file-name="MoveFinder.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/templemore/onx/version1/MoveFinder.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="15" column="0" selection-start="114" selection-end="262" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="OandX.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/templemore/onx/version1/OandX.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="18" column="51" selection-start="618" selection-end="618" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="MoveFinderSpec.scala" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/test/scala/templemore/onx/version2/MoveFinderSpec.scala">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="198" column="41" selection-start="6927" selection-end="6927" vertical-scroll-proportion="0.3059789">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Position.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/templemore/onx/version1/Position.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="46" column="0" selection-start="821" selection-end="927" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Position.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/templemore/onx/version2/Position.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="46" column="0" selection-start="927" selection-end="927" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="MoveFinderTest.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/test/java/templemore/onx/version1/MoveFinderTest.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="116" column="54" selection-start="4250" selection-end="4250" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="MoveFinder.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/templemore/onx/version2/MoveFinder.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="101" column="32" selection-start="3258" selection-end="3258" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="OandX.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/templemore/onx/version2/OandX.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="10" column="57" selection-start="284" selection-end="284" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-    </leaf>
+    <splitter split-orientation="horizontal" split-proportion="0.5">
+      <split-first>
+        <leaf>
+          <file leaf-file-name="GridSpec.scala" pinned="false" current="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/src/test/scala/templemore/onx/version3/GridSpec.scala">
+              <provider selected="true" editor-type-id="text-editor">
+                <state line="23" column="51" selection-start="563" selection-end="563" vertical-scroll-proportion="0.0">
+                  <folding />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="MoveFinder.scala" pinned="false" current="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/src/main/scala/templemore/onx/version3/MoveFinder.scala">
+              <provider selected="true" editor-type-id="text-editor">
+                <state line="92" column="0" selection-start="2654" selection-end="2654" vertical-scroll-proportion="0.0">
+                  <folding />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="Grid.scala" pinned="false" current="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/src/main/scala/templemore/onx/version3/Grid.scala">
+              <provider selected="true" editor-type-id="text-editor">
+                <state line="42" column="32" selection-start="1222" selection-end="1222" vertical-scroll-proportion="0.0">
+                  <folding />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="MoveFinder.java" pinned="false" current="false" current-in-tab="true">
+            <entry file="file://$PROJECT_DIR$/src/main/java/templemore/onx/version1/MoveFinder.java">
+              <provider selected="true" editor-type-id="text-editor">
+                <state line="84" column="52" selection-start="2605" selection-end="2605" vertical-scroll-proportion="0.36738977">
+                  <folding />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="OandX.scala" pinned="false" current="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/src/test/scala/templemore/onx/version3/OandX.scala">
+              <provider selected="true" editor-type-id="text-editor">
+                <state line="9" column="7" selection-start="104" selection-end="104" vertical-scroll-proportion="0.0">
+                  <folding />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="MoveFinderSpec.scala" pinned="false" current="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/src/test/scala/templemore/onx/version3/MoveFinderSpec.scala">
+              <provider selected="true" editor-type-id="text-editor">
+                <state line="144" column="0" selection-start="4775" selection-end="4775" vertical-scroll-proportion="0.0">
+                  <folding />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="MoveFinderSpec.scala" pinned="false" current="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/src/test/scala/templemore/onx/version2/MoveFinderSpec.scala">
+              <provider selected="true" editor-type-id="text-editor">
+                <state line="192" column="42" selection-start="6723" selection-end="6723" vertical-scroll-proportion="0.0">
+                  <folding />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="Token.scala" pinned="false" current="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/src/main/scala/templemore/onx/version3/Token.scala">
+              <provider selected="true" editor-type-id="text-editor">
+                <state line="19" column="15" selection-start="323" selection-end="323" vertical-scroll-proportion="0.0">
+                  <folding />
+                </state>
+              </provider>
+            </entry>
+          </file>
+        </leaf>
+      </split-first>
+      <split-second>
+        <leaf>
+          <file leaf-file-name="WinScanner.java" pinned="false" current="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/src/main/java/templemore/onx/version2/WinScanner.java">
+              <provider selected="true" editor-type-id="text-editor">
+                <state line="16" column="0" selection-start="236" selection-end="382" vertical-scroll-proportion="0.0">
+                  <folding />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name=".gitignore" pinned="false" current="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/.gitignore">
+              <provider selected="true" editor-type-id="text-editor">
+                <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+                  <folding />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="MoveFinder.java" pinned="false" current="true" current-in-tab="true">
+            <entry file="file://$PROJECT_DIR$/src/main/java/templemore/onx/version2/MoveFinder.java">
+              <provider selected="true" editor-type-id="text-editor">
+                <state line="83" column="11" selection-start="2593" selection-end="2593" vertical-scroll-proportion="0.378882">
+                  <folding />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="OandX.java" pinned="false" current="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/src/main/java/templemore/onx/version2/OandX.java">
+              <provider selected="true" editor-type-id="text-editor">
+                <state line="26" column="0" selection-start="620" selection-end="834" vertical-scroll-proportion="0.0">
+                  <folding />
+                </state>
+              </provider>
+            </entry>
+          </file>
+        </leaf>
+      </split-second>
+    </splitter>
   </component>
   <component name="FindManager">
     <FindUsagesManager>
@@ -199,22 +258,22 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/src/main/java/templemore/onx/version1/Token.java" />
-        <option value="$PROJECT_DIR$/src/main/java/templemore/onx/version1/Grid.java" />
-        <option value="$PROJECT_DIR$/src/main/java/templemore/onx/version2/Grid.java" />
-        <option value="$PROJECT_DIR$/src/main/java/templemore/onx/version2/Token.java" />
-        <option value="$PROJECT_DIR$/src/main/java/templemore/onx/version2/WinScanner.java" />
-        <option value="$PROJECT_DIR$/src/test/scala/templemore/onx/version2/GridSpec.scala" />
-        <option value="$PROJECT_DIR$/src/test/scala/templemore/onx/version2/PositionSpec.scala" />
-        <option value="$PROJECT_DIR$/src/test/scala/templemore/onx/version2/WinScannerSpec.scala" />
-        <option value="$PROJECT_DIR$/src/main/java/templemore/onx/version1/MoveFinder.java" />
-        <option value="$PROJECT_DIR$/src/main/java/templemore/onx/version1/OandX.java" />
         <option value="$PROJECT_DIR$/src/test/java/templemore/onx/version1/MoveFinderTest.java" />
-        <option value="$PROJECT_DIR$/src/main/java/templemore/onx/version2/MoveFinder.java" />
         <option value="$PROJECT_DIR$/src/main/java/templemore/onx/version2/OandX.java" />
         <option value="$PROJECT_DIR$/src/main/java/templemore/onx/version1/Position.java" />
         <option value="$PROJECT_DIR$/src/main/java/templemore/onx/version2/Position.java" />
         <option value="$PROJECT_DIR$/src/test/scala/templemore/onx/version2/MoveFinderSpec.scala" />
+        <option value="$PROJECT_DIR$/src/main/scala/templemore/onx/version3/Position.scala" />
+        <option value="$PROJECT_DIR$/src/test/scala/templemore/onx/version3/GridSpec.scala" />
+        <option value="$PROJECT_DIR$/src/test/scala/templemore/onx/version3/WinScannerSpec.scala" />
+        <option value="$PROJECT_DIR$/src/main/scala/templemore/onx/version3/WinScanner.scala" />
+        <option value="$PROJECT_DIR$/src/main/scala/templemore/onx/version3/Token.scala" />
+        <option value="$PROJECT_DIR$/src/test/scala/templemore/onx/version3/MoveFinderSpec.scala" />
+        <option value="$PROJECT_DIR$/src/test/scala/templemore/onx/version3/OandX.scala" />
+        <option value="$PROJECT_DIR$/src/main/scala/templemore/onx/version3/MoveFinder.scala" />
+        <option value="$PROJECT_DIR$/src/main/scala/templemore/onx/version3/Grid.scala" />
+        <option value="$PROJECT_DIR$/src/main/java/templemore/onx/version1/MoveFinder.java" />
+        <option value="$PROJECT_DIR$/src/main/java/templemore/onx/version2/MoveFinder.java" />
       </list>
     </option>
   </component>
@@ -291,8 +350,9 @@
       <sortByType />
     </navigator>
     <panes>
-      <pane id="PackagesPane" />
       <pane id="Favorites" />
+      <pane id="Scope" />
+      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -308,6 +368,40 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="onx" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="onx" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="onx" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="test" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="scala" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="templemore" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="onx" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="version3" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -377,11 +471,11 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="test" />
+              <option name="myItemId" value="main" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="java" />
+              <option name="myItemId" value="scala" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
@@ -393,8 +487,46 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="version1" />
+              <option name="myItemId" value="version3" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="onx" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="onx" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="scala" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="templemore" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="onx" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="version3" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Grid.scala" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.ClassesTreeStructureProvider$PsiClassOwnerTreeNode" />
             </PATH_ELEMENT>
           </PATH>
           <PATH>
@@ -485,7 +617,6 @@
           </PATH>
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -503,9 +634,9 @@
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="MemberChooser.showClasses" value="true" />
     <property name="GoToClass.includeLibraries" value="false" />
-    <property name="dynamic.classpath" value="false" />
-    <property name="options.searchVisible" value="true" />
     <property name="options.splitter.details.proportions" value="0.2" />
+    <property name="options.searchVisible" value="true" />
+    <property name="dynamic.classpath" value="false" />
   </component>
   <component name="RecentsManager">
     <key name="CreateClassDialog.RecentsKey">
@@ -513,6 +644,26 @@
     </key>
   </component>
   <component name="RunManager" selected="ScalaTest.Version 2 Tests">
+    <configuration default="false" name="Scala Console" type="ScalaScriptConsoleRunConfiguration" factoryName="Scala Console" temporary="true">
+      <module name="onx" />
+      <setting name="vmparams" value="" />
+      <setting name="consoleArgs" value="" />
+      <RunnerSettings RunnerId="Run" />
+      <ConfigurationWrapper RunnerId="Run" />
+      <method />
+    </configuration>
+    <configuration default="true" type="ScalaScriptConsoleRunConfiguration" factoryName="Scala Console">
+      <module name="" />
+      <setting name="vmparams" value="" />
+      <setting name="consoleArgs" value="" />
+      <method>
+        <option name="AntTarget" enabled="false" />
+        <option name="BuildArtifacts" enabled="false" />
+        <option name="Make" enabled="true" />
+        <option name="Maven.BeforeRunTask" enabled="false" />
+        <option name="SBT.BeforeRunTask" enabled="false" />
+      </method>
+    </configuration>
     <configuration default="true" type="Remote" factoryName="Remote">
       <option name="USE_SOCKET_TRANSPORT" value="true" />
       <option name="SERVER_MODE" value="false" />
@@ -666,6 +817,29 @@
         <option name="SBT.BeforeRunTask" enabled="false" />
       </method>
     </configuration>
+    <configuration default="false" name="OandX Version 2" type="Application" factoryName="Application">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
+        <pattern>
+          <option name="PATTERN" value="templemore.onx.version2.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <extension name="snapshooter" />
+      <option name="MAIN_CLASS_NAME" value="templemore.onx.version2.OandX" />
+      <option name="VM_PARAMETERS" value="" />
+      <option name="PROGRAM_PARAMETERS" value="" />
+      <option name="WORKING_DIRECTORY" value="file://$PROJECT_DIR$" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" value="" />
+      <option name="ENABLE_SWING_INSPECTOR" value="false" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <module name="onx" />
+      <envs />
+      <RunnerSettings RunnerId="Run" />
+      <ConfigurationWrapper RunnerId="Run" />
+      <method />
+    </configuration>
     <configuration default="false" name="OandX Version 1" type="Application" factoryName="Application">
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
         <pattern>
@@ -705,6 +879,24 @@
       <setting name="workingDirectory" value="$PROJECT_DIR$" />
       <RunnerSettings RunnerId="Debug">
         <option name="DEBUG_PORT" value="49174" />
+        <option name="TRANSPORT" value="0" />
+        <option name="LOCAL" value="true" />
+      </RunnerSettings>
+      <RunnerSettings RunnerId="Run" />
+      <ConfigurationWrapper RunnerId="Debug" />
+      <ConfigurationWrapper RunnerId="Run" />
+      <method />
+    </configuration>
+    <configuration default="false" name="Version 3 Tests" type="ScalaTestRunConfiguration" factoryName="ScalaTest">
+      <module name="onx" />
+      <setting name="path" value="" />
+      <setting name="package" value="templemore.onx.version3" />
+      <setting name="vmparams" value="" />
+      <setting name="params" value="" />
+      <setting name="version" value="true" />
+      <setting name="workingDirectory" value="$PROJECT_DIR$" />
+      <RunnerSettings RunnerId="Debug">
+        <option name="DEBUG_PORT" value="52941" />
         <option name="TRANSPORT" value="0" />
         <option name="LOCAL" value="true" />
       </RunnerSettings>
@@ -754,10 +946,13 @@
       <ConfigurationWrapper RunnerId="Run" />
       <method />
     </configuration>
-    <list size="3">
-      <item index="0" class="java.lang.String" itemvalue="Application.OandX Version 1" />
-      <item index="1" class="java.lang.String" itemvalue="ScalaTest.Version 2 Tests" />
-      <item index="2" class="java.lang.String" itemvalue="TestNG.Version 1 Tests" />
+    <list size="6">
+      <item index="0" class="java.lang.String" itemvalue="Application.OandX Version 2" />
+      <item index="1" class="java.lang.String" itemvalue="Application.OandX Version 1" />
+      <item index="2" class="java.lang.String" itemvalue="ScalaTest.Version 2 Tests" />
+      <item index="3" class="java.lang.String" itemvalue="ScalaTest.Version 3 Tests" />
+      <item index="4" class="java.lang.String" itemvalue="TestNG.Version 1 Tests" />
+      <item index="5" class="java.lang.String" itemvalue="Scala Console.Scala Console" />
     </list>
     <configuration name="&lt;template&gt;" type="WebApp" default="true" selected="false">
       <Host>localhost</Host>
@@ -790,22 +985,22 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="22" width="1680" height="1024" extended-state="0" />
+    <frame x="1680" y="-247" width="2560" height="1600" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3991131" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3985115" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3292683" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32882273" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.329859" sideWeight="0.6707317" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.17005177" sideWeight="0.64682" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Dependency Viewer" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3292683" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.35317996" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -849,98 +1044,100 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/main/java/templemore/onx/version2/WinScanner.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="12" column="33" selection-start="261" selection-end="261" vertical-scroll-proportion="0.20618556" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/templemore/onx/version1/GridTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="12" column="13" selection-start="276" selection-end="276" vertical-scroll-proportion="0.0" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/templemore/onx/version1/PositionTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="27" column="33" selection-start="770" selection-end="770" vertical-scroll-proportion="0.823389" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/scala/templemore/onx/version2/PositionSpec.scala">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="38" column="25" selection-start="1072" selection-end="1072" vertical-scroll-proportion="0.6778043" />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/templemore/onx/version2/Grid.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="77" column="0" selection-start="2616" selection-end="2616" vertical-scroll-proportion="0.10739857" />
+        <state line="77" column="0" selection-start="2616" selection-end="2616" vertical-scroll-proportion="0.0" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/templemore/onx/version1/WinScannerTest.java">
+    <entry file="file://$PROJECT_DIR$/src/test/scala/templemore/onx/version3/WinScannerSpec.scala">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="37" column="76" selection-start="1179" selection-end="1179" vertical-scroll-proportion="0.39862543" />
+        <state line="73" column="19" selection-start="2233" selection-end="2233" vertical-scroll-proportion="0.0" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/test/scala/templemore/onx/version2/WinScannerSpec.scala">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="15" column="6" selection-start="441" selection-end="441" vertical-scroll-proportion="0.22336769" />
+        <state line="113" column="18" selection-start="33" selection-end="3369" vertical-scroll-proportion="0.0" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/scala/templemore/onx/version2/GridSpec.scala">
+    <entry file="file://$PROJECT_DIR$/src/main/scala/templemore/onx/version3/WinScanner.scala">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="79" column="39" selection-start="2338" selection-end="2338" vertical-scroll-proportion="0.0" />
+        <state line="17" column="106" selection-start="335" selection-end="335" vertical-scroll-proportion="0.17598344" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/templemore/onx/version1/MoveFinder.java">
+    <entry file="file://$PROJECT_DIR$/src/test/scala/templemore/onx/version3/GridSpec.scala">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="15" column="0" selection-start="114" selection-end="262" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
+        <state line="23" column="51" selection-start="563" selection-end="563" vertical-scroll-proportion="0.0" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/templemore/onx/version1/MoveFinderTest.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/templemore/onx/version2/WinScanner.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="116" column="54" selection-start="4250" selection-end="4250" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
+        <state line="16" column="0" selection-start="236" selection-end="382" vertical-scroll-proportion="0.0" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/templemore/onx/version2/MoveFinder.java">
+    <entry file="file://$PROJECT_DIR$/.gitignore">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="101" column="32" selection-start="3258" selection-end="3258" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/templemore/onx/version2/OandX.java">
+    <entry file="file://$PROJECT_DIR$/src/main/scala/templemore/onx/version3/Token.scala">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="10" column="57" selection-start="284" selection-end="284" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/templemore/onx/version1/OandX.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="18" column="51" selection-start="618" selection-end="618" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/templemore/onx/version1/Position.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="46" column="0" selection-start="821" selection-end="927" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/templemore/onx/version2/Position.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="46" column="0" selection-start="927" selection-end="927" vertical-scroll-proportion="0.0">
+        <state line="19" column="15" selection-start="323" selection-end="323" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/test/scala/templemore/onx/version2/MoveFinderSpec.scala">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="198" column="41" selection-start="6927" selection-end="6927" vertical-scroll-proportion="0.3059789">
+        <state line="192" column="42" selection-start="6723" selection-end="6723" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/scala/templemore/onx/version3/MoveFinderSpec.scala">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="144" column="0" selection-start="4775" selection-end="4775" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/scala/templemore/onx/version3/MoveFinder.scala">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="92" column="0" selection-start="2654" selection-end="2654" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/scala/templemore/onx/version3/OandX.scala">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="9" column="7" selection-start="104" selection-end="104" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/scala/templemore/onx/version3/Grid.scala">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="42" column="32" selection-start="1222" selection-end="1222" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/templemore/onx/version1/MoveFinder.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="84" column="52" selection-start="2605" selection-end="2605" vertical-scroll-proportion="0.36738977">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/templemore/onx/version2/OandX.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="26" column="0" selection-start="620" selection-end="834" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/templemore/onx/version2/MoveFinder.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="83" column="11" selection-start="2593" selection-end="2593" vertical-scroll-proportion="0.378882">
           <folding />
         </state>
       </provider>
