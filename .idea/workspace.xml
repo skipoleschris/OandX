@@ -1,22 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="5aa7ad72-180c-4683-aedb-ec9fb751d795" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/templemore/onx/version2/Line.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/scala/templemore/onx/version3/Line.scala" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/scala/templemore/onx/version3/OandX.scala" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/templemore/onx/version2/Grid.java" afterPath="$PROJECT_DIR$/src/main/java/templemore/onx/version2/Grid.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/templemore/onx/version2/Line.java" afterPath="$PROJECT_DIR$/src/main/java/templemore/onx/version2/Line.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/templemore/onx/version2/MoveFinder.java" afterPath="$PROJECT_DIR$/src/main/java/templemore/onx/version2/MoveFinder.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/templemore/onx/version2/WinScanner.java" afterPath="$PROJECT_DIR$/src/main/java/templemore/onx/version2/WinScanner.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/scala/templemore/onx/version3/Grid.scala" afterPath="$PROJECT_DIR$/src/main/scala/templemore/onx/version3/Grid.scala" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/scala/templemore/onx/version3/Line.scala" afterPath="$PROJECT_DIR$/src/main/scala/templemore/onx/version3/Line.scala" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/scala/templemore/onx/version3/MoveFinder.scala" afterPath="$PROJECT_DIR$/src/main/scala/templemore/onx/version3/MoveFinder.scala" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/scala/templemore/onx/version3/OandX.scala" afterPath="$PROJECT_DIR$/src/main/scala/templemore/onx/version3/OandX.scala" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/scala/templemore/onx/version3/WinScanner.scala" afterPath="$PROJECT_DIR$/src/main/scala/templemore/onx/version3/WinScanner.scala" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/test/scala/templemore/onx/version2/GridSpec.scala" afterPath="$PROJECT_DIR$/src/test/scala/templemore/onx/version2/GridSpec.scala" />
-    </list>
+    <list default="true" id="5aa7ad72-180c-4683-aedb-ec9fb751d795" name="Default" comment="" />
     <ignored path="onx.iws" />
     <ignored path=".idea/workspace.xml" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -110,7 +95,7 @@
       <file leaf-file-name="Grid.scala" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/scala/templemore/onx/version3/Grid.scala">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="54" column="33" selection-start="2181" selection-end="2181" vertical-scroll-proportion="0.92783505">
+            <state line="34" column="9" selection-start="1006" selection-end="1006" vertical-scroll-proportion="0.58419245">
               <folding />
             </state>
           </provider>
@@ -207,10 +192,10 @@
         <option value="$PROJECT_DIR$/src/main/java/templemore/onx/version2/Grid.java" />
         <option value="$PROJECT_DIR$/src/main/java/templemore/onx/version2/Line.java" />
         <option value="$PROJECT_DIR$/src/main/scala/templemore/onx/version3/Line.scala" />
-        <option value="$PROJECT_DIR$/src/main/scala/templemore/onx/version3/Grid.scala" />
         <option value="$PROJECT_DIR$/src/main/scala/templemore/onx/version3/WinScanner.scala" />
         <option value="$PROJECT_DIR$/src/main/scala/templemore/onx/version3/MoveFinder.scala" />
         <option value="$PROJECT_DIR$/src/main/scala/templemore/onx/version3/OandX.scala" />
+        <option value="$PROJECT_DIR$/src/main/scala/templemore/onx/version3/Grid.scala" />
       </list>
     </option>
   </component>
@@ -960,7 +945,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/scala/templemore/onx/version3/Grid.scala">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="54" column="33" selection-start="2181" selection-end="2181" vertical-scroll-proportion="0.92783505">
+        <state line="34" column="9" selection-start="1006" selection-end="1006" vertical-scroll-proportion="0.58419245">
           <folding />
         </state>
       </provider>
