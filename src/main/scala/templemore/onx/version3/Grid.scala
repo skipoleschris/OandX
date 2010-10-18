@@ -28,6 +28,56 @@ class Grid {
     true
   }
 
+  def lines: Array[Line] = {
+    Array[Line](Line(0, -1, Array(token(Grid.TopLeft),
+                                  token(Grid.TopMiddle),
+                                  token(Grid.TopRight))),
+                Line(1, -1, Array(token(Grid.MiddleLeft),
+                                  token(Grid.Middle),
+                                  token(Grid.MiddleRight))),
+                Line(2, -1, Array(token(Grid.BottomLeft),
+                                  token(Grid.BottomMiddle),
+                                  token(Grid.BottomRight))),
+                Line(-1, 0, Array(token(Grid.TopLeft),
+                                  token(Grid.MiddleLeft),
+                                  token(Grid.BottomLeft))),
+                Line(-1, 1, Array(token(Grid.TopMiddle),
+                                  token(Grid.Middle),
+                                  token(Grid.BottomMiddle))),
+                Line(-1, 2, Array(token(Grid.TopRight),
+                                  token(Grid.MiddleRight),
+                                  token(Grid.BottomRight))),
+                Line(0, 0, Array(token(Grid.TopLeft),
+                                 token(Grid.Middle),
+                                 token(Grid.BottomRight))),
+                Line(2, 0, Array(token(Grid.BottomLeft),
+                                 token(Grid.Middle),
+                                 token(Grid.TopRight))))
+  }
+
+  def corner_?(position: Position): Boolean = {
+    position == Grid.TopLeft || position == Grid.TopRight ||
+    position == Grid.BottomLeft || position == Grid.BottomRight
+  }
+
+  def linesWithMatchingTokenAndTwoSpaces(token: Token) = {
+    var result = List[Line]()
+    for ( line <- lines.toList ) {
+      if ( line.emptySpaces == 2 && line.allSameToken_?(token) ) result = line :: result
+    }
+    result.reverse
+  }
+
+  def allPositionsOnEmptyLines = {
+    var result = List[Position]()
+    for ( line <- lines.toList ) {
+      if ( line.emptySpaces == 3 ) {
+        result = result ++ line.emptyPositions.toList.reverse
+      }
+    }
+    result
+  }
+
   override def toString = {
     var sb = ""
     for ( row <- 0 to 2 ) {

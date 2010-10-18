@@ -1,5 +1,9 @@
 package templemore.onx.version2;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+
 /**
  * @author Chris Turner
  */
@@ -54,6 +58,62 @@ public class Grid {
             }
         }
         return true;
+    }
+
+    public Line[] getAllLines() {
+        final Line[] lines = new Line[8];
+        lines[0] = new Line(0, -1, new Token[] { getToken(Grid.TOP_LEFT),
+                                                 getToken(Grid.TOP_MIDDLE),
+                                                 getToken(Grid.TOP_RIGHT)});
+        lines[1] = new Line(1, -1, new Token[] { getToken(Grid.MIDDLE_LEFT),
+                                                 getToken(Grid.MIDDLE),
+                                                 getToken(Grid.MIDDLE_RIGHT)});
+        lines[2] = new Line(2, -1, new Token[] { getToken(Grid.BOTTOM_LEFT),
+                                                 getToken(Grid.BOTTOM_MIDDLE),
+                                                 getToken(Grid.BOTTOM_RIGHT)});
+        lines[3] = new Line(-1, 0, new Token[] { getToken(Grid.TOP_LEFT),
+                                                 getToken(Grid.MIDDLE_LEFT),
+                                                 getToken(Grid.BOTTOM_LEFT)});
+        lines[4] = new Line(-1, 1, new Token[] { getToken(Grid.TOP_MIDDLE),
+                                                 getToken(Grid.MIDDLE),
+                                                 getToken(Grid.BOTTOM_MIDDLE)});
+        lines[5] = new Line(-1, 2, new Token[] { getToken(Grid.TOP_RIGHT),
+                                                 getToken(Grid.MIDDLE_RIGHT),
+                                                 getToken(Grid.BOTTOM_RIGHT)});
+        lines[6] = new Line(0, 0, new Token[] { getToken(Grid.TOP_LEFT),
+                                                getToken(Grid.MIDDLE),
+                                                getToken(Grid.BOTTOM_RIGHT)});
+        lines[7] = new Line(2, 0, new Token[] { getToken(Grid.BOTTOM_LEFT),
+                                                getToken(Grid.MIDDLE),
+                                                getToken(Grid.TOP_RIGHT)});
+        return lines;
+    }
+
+    public boolean isCorner(final Position position) {
+        return position.equals(TOP_LEFT) ||
+               position.equals(TOP_RIGHT) ||
+               position.equals(BOTTOM_LEFT) ||
+               position.equals(BOTTOM_RIGHT);
+    }
+
+    public List<Position> getAllPositionsOnEmptyLines() {
+        final List<Position> result = new ArrayList<Position>();
+        for ( final Line line : getAllLines() ) {
+            if ( line.emptySpaces() == 3 ) {
+                result.addAll(Arrays.asList(line.getEmptyPositions()));
+            }
+        }
+        return result;
+    }
+
+    public Line[] getLinesWithMatchingTokenAndTwoSpaces(final Token token) {
+        final List<Line> result = new ArrayList<Line>();
+        for ( final Line line : getAllLines() ) {
+            if ( line.emptySpaces() == 2 && line.isAllSameToken(token) ) {
+                result.add(line);
+            }
+        }
+        return result.toArray(new Line[result.size()]);
     }
 
     @Override

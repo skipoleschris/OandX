@@ -10,12 +10,10 @@ public class WinScanner {
     }
 
     public Token winningToken(final Grid grid) {
-        // Check each row
-        for ( int row = 0; row < Grid.HEIGHT; row++) {
+        for ( final Line line : grid.getAllLines() ) {
             int noughtCount = 0;
             int crossCount = 0;
-            for ( int col = 0; col < Grid.WIDTH; col++ ) {
-                final Token token =  grid.getToken(new Position(row, col));
+            for ( final Token token : line.getTokens() ) {
                 if ( Token.nought == token ) noughtCount++;
                 else if ( Token.cross == token ) crossCount++;
             }
@@ -23,43 +21,6 @@ public class WinScanner {
             if ( noughtCount == Grid.WIDTH ) return Token.nought;
             if ( crossCount == Grid.WIDTH ) return Token.cross;
         }
-
-        // Check each column
-        for ( int col = 0; col < Grid.WIDTH; col++ ) {
-            int noughtCount = 0;
-            int crossCount = 0;
-            for ( int row = 0; row < Grid.HEIGHT; row++ ) {
-                final Token token =  grid.getToken(new Position(row, col));
-                if ( Token.nought == token ) noughtCount++;
-                else if ( Token.cross == token ) crossCount++;
-            }
-
-            if ( noughtCount == Grid.WIDTH ) return Token.nought;
-            if ( crossCount == Grid.WIDTH ) return Token.cross;
-        }
-
-        // Check top to bottom diagonal
-        int noughtCount = 0;
-        int crossCount = 0;
-        for ( int col = 0, row = 0; col < Grid.WIDTH && row < Grid.HEIGHT; col++, row++ ) {
-            final Token token =  grid.getToken(new Position(row, col));
-            if ( Token.nought == token ) noughtCount++;
-            else if ( Token.cross == token ) crossCount++;
-        }
-        if ( noughtCount == Grid.WIDTH ) return Token.nought;
-        if ( crossCount == Grid.WIDTH ) return Token.cross;
-
-        // Check bottom to top diagonal
-        noughtCount = 0;
-        crossCount = 0;
-        for ( int col = 0, row = (Grid.HEIGHT - 1); col < Grid.WIDTH && row >= 0; col++, row-- ) {
-            final Token token =  grid.getToken(new Position(row, col));
-            if ( Token.nought == token ) noughtCount++;
-            else if ( Token.cross == token ) crossCount++;
-        }
-        if ( noughtCount == Grid.WIDTH ) return Token.nought;
-        if ( crossCount == Grid.WIDTH ) return Token.cross;
-
         return null;
     }
 }
