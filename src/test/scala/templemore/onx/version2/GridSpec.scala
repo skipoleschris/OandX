@@ -73,6 +73,8 @@ class GridSpec extends FeatureSpec with GivenWhenThen with MustMatchers {
       }
     }
 
+    //TODO: Add test for get all lines method
+
     scenario("can be constructed in a pre-configured state from a string") {
       given("a string representation of a OnX grid")
       val spec = """|O X
