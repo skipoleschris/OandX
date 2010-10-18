@@ -1,4 +1,4 @@
-package templemore.onx.version3
+package templemore.onx.version4
 
 import org.scalatest.matchers.MustMatchers
 import org.scalatest. {FeatureSpec, GivenWhenThen}
@@ -18,14 +18,11 @@ class MoveFinderSpec extends FeatureSpec with GivenWhenThen with MustMatchers {
                          |---
                          |---""".stripMargin)
 
-      and("a move finder")
-      val finder = new MoveFinder(false)
-
       when("the best position is requested")
-      val position = finder.findBestPosition(grid, Token.Nought)
+      val position = grid.findBestPosition(Nought)
 
       then("a winning position should be found")
-      position must be (Position(0, 2))
+      position must be (Some(Position(0, 2)))
     }
 
     scenario("can find a vertical winning position") {
@@ -34,14 +31,11 @@ class MoveFinderSpec extends FeatureSpec with GivenWhenThen with MustMatchers {
                          |O--
                          |---""".stripMargin)
 
-      and("a move finder")
-      val finder = new MoveFinder(false)
-
       when("the best position is requested")
-      val position = finder.findBestPosition(grid, Token.Nought)
+      val position = grid.findBestPosition(Nought)
 
       then("a winning position should be found")
-      position must be (Position(2, 0))
+      position must be (Some(Position(2, 0)))
     }
 
     scenario("can find a diagonal winning position") {
@@ -50,14 +44,11 @@ class MoveFinderSpec extends FeatureSpec with GivenWhenThen with MustMatchers {
                          |-O-
                          |O--""".stripMargin)
 
-      and("a move finder")
-      val finder = new MoveFinder(false)
-
       when("the best position is requested")
-      val position = finder.findBestPosition(grid, Token.Nought)
+      val position = grid.findBestPosition(Nought)
 
       then("a winning position should be found")
-      position must be (Position(0, 2))
+      position must be (Some(Position(0, 2)))
     }
 
     // Test to find that if we can't win then we can at least block the opponent from winning
@@ -68,14 +59,11 @@ class MoveFinderSpec extends FeatureSpec with GivenWhenThen with MustMatchers {
                          |---
                          |---""".stripMargin)
 
-      and("a move finder")
-      val finder = new MoveFinder(false)
-
       when("the best position is requested")
-      val position = finder.findBestPosition(grid, Token.Cross)
+      val position = grid.findBestPosition(Cross)
 
       then("a blocking position should be found")
-      position must be (Position(0, 2))
+      position must be (Some(Position(0, 2)))
     }
 
     scenario("can find a position to block an opponent from winning vertically") {
@@ -84,14 +72,11 @@ class MoveFinderSpec extends FeatureSpec with GivenWhenThen with MustMatchers {
                          |O--
                          |---""".stripMargin)
 
-      and("a move finder")
-      val finder = new MoveFinder(false)
-
       when("the best position is requested")
-      val position = finder.findBestPosition(grid, Token.Cross)
+      val position = grid.findBestPosition(Cross)
 
       then("a blocking position should be found")
-      position must be (Position(2, 0))
+      position must be (Some(Position(2, 0)))
     }
 
     scenario("can find a position to block an opponent from winning diagonally") {
@@ -100,14 +85,11 @@ class MoveFinderSpec extends FeatureSpec with GivenWhenThen with MustMatchers {
                          |-O-
                          |O--""".stripMargin)
 
-      and("a move finder")
-      val finder = new MoveFinder(false)
-
       when("the best position is requested")
-      val position = finder.findBestPosition(grid, Token.Cross)
+      val position = grid.findBestPosition(Cross)
 
       then("a blocking position shold be found")
-      position must be (Position(0, 2))
+      position must be (Some(Position(0, 2)))
     }
 
     // Test to find that if we can't win an block we can find a position that gives us a
@@ -119,14 +101,11 @@ class MoveFinderSpec extends FeatureSpec with GivenWhenThen with MustMatchers {
                          |-O-
                          |--X""".stripMargin)
 
-      and("a move finder")
-      val finder = new MoveFinder(false)
-
       when("the best position is requested")
-      val position = finder.findBestPosition(grid, Token.Nought)
+      val position = grid.findBestPosition(Nought)
 
       then("a blocking position shold be found")
-      position must be (Position(1, 0))
+      position must be (Some(Position(1, 0)))
     }
 
     // Test to find that if we can't find a double win spot that we can block out opponent
@@ -138,14 +117,11 @@ class MoveFinderSpec extends FeatureSpec with GivenWhenThen with MustMatchers {
                          |-O-
                          |--X""".stripMargin)
 
-      and("a move finder")
-      val finder = new MoveFinder(false)
-
       when("the best position is requested")
-      val position = finder.findBestPosition(grid, Token.Cross)
+      val position = grid.findBestPosition(Cross)
 
       then("a blocking position shold be found")
-      position must be (Position(1, 0))
+      position must be (Some(Position(1, 0)))
     }
 
     // Tests to find that when there are no win or block options that we pick the best
@@ -157,14 +133,11 @@ class MoveFinderSpec extends FeatureSpec with GivenWhenThen with MustMatchers {
                          |---
                          |-X-""".stripMargin)
 
-      and("a move finder")
-      val finder = new MoveFinder(false)
-
       when("the best position is requested")
-      val position = finder.findBestPosition(grid, Token.Nought)
+      val position = grid.findBestPosition(Nought)
 
       then("the middle position should be found")
-      position must be (Position(1, 1))
+      position must be (Some(Position(1, 1)))
     }
 
     scenario("can find a position on a line with only one token of the same kind") {
@@ -173,14 +146,11 @@ class MoveFinderSpec extends FeatureSpec with GivenWhenThen with MustMatchers {
                          |-X-
                          |---""".stripMargin)
 
-      and("a move finder")
-      val finder = new MoveFinder(false)
-
       when("the best position is requested")
-      val position = finder.findBestPosition(grid, Token.Nought)
+      val position = grid.findBestPosition(Nought)
 
       then("the most optimal position should be found")
-      position must be (Position(0, 2))
+      position must be (Some(Position(0, 2)))
     }
 
     scenario("can find the middle position on an empty line") {
@@ -189,14 +159,11 @@ class MoveFinderSpec extends FeatureSpec with GivenWhenThen with MustMatchers {
                          |---
                          |---""".stripMargin)
 
-      and("a move finder")
-      val finder = new MoveFinder(false)
-
       when("the best position is requested")
-      val position = finder.findBestPosition(grid, Token.Nought)
+      val position = grid.findBestPosition(Nought)
 
       then("the middle position should be found")
-      position must be (Position(1, 1))
+      position must be (Some(Position(1, 1)))
     }
 
     scenario("can find a position on an empty line") {
@@ -205,14 +172,11 @@ class MoveFinderSpec extends FeatureSpec with GivenWhenThen with MustMatchers {
                          |-X-
                          |---""".stripMargin)
 
-      and("a move finder")
-      val finder = new MoveFinder(false)
-
       when("the best position is requested")
-      val position = finder.findBestPosition(grid, Token.Nought)
+      val position = grid.findBestPosition(Nought)
 
       then("the most optimal position should be found")
-      position must be (Position(0, 0))
+      position must be (Some(Position(0, 0)))
     }
 
     scenario("can find the middle position if free and no other options") {
@@ -221,14 +185,11 @@ class MoveFinderSpec extends FeatureSpec with GivenWhenThen with MustMatchers {
                          |X-O
                          |XXO""".stripMargin)
 
-      and("a move finder")
-      val finder = new MoveFinder(false)
-
       when("the best position is requested")
-      val position = finder.findBestPosition(grid, Token.Nought)
+      val position = grid.findBestPosition(Nought)
 
       then("the middle position should be found")
-      position must be (Position(1, 1))
+      position must be (Some(Position(1, 1)))
     }
   }
 }

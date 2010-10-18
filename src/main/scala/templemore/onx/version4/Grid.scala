@@ -3,10 +3,9 @@ package templemore.onx.version4
 /**
  * @author Chris Turner
  */
-class Grid(values: List[List[Option[Token]]]) extends GridPosition with GridLines with WinScanner {
+class Grid(values: List[List[Option[Token]]]) extends GridPosition with GridLines with WinScanner with MoveFinder {
 
   import Grid._
-  println("New grid: " + values)
 
   def token(position: Position) = column(position, row(position))
 
