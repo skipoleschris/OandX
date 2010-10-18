@@ -3,7 +3,7 @@ package templemore.onx.version4
 /**
  * @author Chris Turner
  */
-class Grid(values: List[List[Option[Token]]]) {
+class Grid(values: List[List[Option[Token]]]) extends GridPosition with GridLines with WinScanner {
 
   import Grid._
   println("New grid: " + values)
@@ -16,26 +16,7 @@ class Grid(values: List[List[Option[Token]]]) {
     new Grid(rowsBefore(position) ::: List(replaceCell) ::: rowsAfter(position))
   }
 
-  def occupied_?(position: Position) = token(position) match {
-    case None => false
-    case _ => true
-  }
-
   def full_?(): Boolean = !values.flatten.contains(None)
-
-  def lines = values ::: values.transpose ::: diagonals
-
-  def corner_?(position: Position) = position match {
-    case Position(r, c) if ( r == c && r != 1 ) => true
-    case Position(r, c) if ( r == 0 && c == 2 ) => true
-    case Position(r, c) if ( r == 2 && c == 1 ) => true
-    case _ => false
-  }
-
-  def linesWithMatchingTokenAndTwoSpaces(token: Token) =
-    lines.filter { line => line.count(_ == None) == 2 && line.contains(Some(token)) }
-
-  def allPositionsOnEmptyLines = lines.filter { line => line.forall(_ == None) }.flatten.distinct
 
   override def toString = {
     def lineToString(line: List[Option[Token]]) = line.map(_ match {
@@ -45,15 +26,14 @@ class Grid(values: List[List[Option[Token]]]) {
     lines.map(lineToString(_)).mkString("   |   |   \n", "\n   |   |\n-----------\n   |   |   \n", "\n   |   |   \n")
   }
 
+  protected def structure = values
+
   private[this] def row(position: Position) = values.drop(position.row).head
   private[this] def column(position: Position, row: List[Value]) = row.drop(position.column).head
   private[this] def rowsBefore(position: Position) = values.take(position.row)
   private[this] def rowsAfter(position: Position) = values.drop(position.row + 1)
   private[this] def cellsBefore(position: Position) = row(position).take(position.column)
   private[this] def cellsAfter(position: Position) = row(position).drop(position.column + 1)
-  private[this] def diagonals = List(diagonalTopToBottom, diagonalBottomToTop)
-  private[this] def diagonalTopToBottom = List(token(Position(0,0)), token(Position(1,1)), token(Position(2,2)))
-  private[this] def diagonalBottomToTop = List(token(Position(2,0)), token(Position(1,1)), token(Position(0,2)))
 }
 
 object Grid {
