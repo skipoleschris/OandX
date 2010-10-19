@@ -22,10 +22,11 @@ trait GridLines {
     case x :: xs => Some(x)
   }
 
-//  def linesWithMatchingTokenAndTwoSpaces(token: Token) =
-//    lines.filter { line => line.count(_ == None) == 2 && line.contains(Some(token)) }
+  def linesWithMatchingTokenAndTwoSpaces(token: Token) =
+    linesWithPositions.filter { line => line._1.count(_ == None) == 2 && line._1.contains(Some(token)) }
 
-//  def allPositionsOnEmptyLines = lines.filter { line => line.forall(_ == None) }.flatten.distinct
+  def allPositionsOnEmptyLines =
+    linesWithPositions.filter { line => line._1.forall(_ == None) }.map(_._2).distinct.flatMap(positions(_))
 
   private[this] def diagonals = List(diagonalTopToBottom, diagonalBottomToTop)
   private[this] def diagonalTopToBottom = List(token(Position(0,0)), token(Position(1,1)), token(Position(2,2)))

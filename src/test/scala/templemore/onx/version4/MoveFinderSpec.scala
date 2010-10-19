@@ -150,7 +150,7 @@ class MoveFinderSpec extends FeatureSpec with GivenWhenThen with MustMatchers {
       val position = grid.findBestPosition(Nought)
 
       then("the most optimal position should be found")
-      position must be (Some(Position(0, 2)))
+      position must be (Some(Position(0, 1)))
     }
 
     scenario("can find the middle position on an empty line") {

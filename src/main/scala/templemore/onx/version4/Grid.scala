@@ -22,7 +22,7 @@ class Grid(values: List[List[Option[Token]]]) extends GridPosition with GridLine
       case Some(t) => t.symbol
       case _ => " "
     }).mkString(" ", " | ", " ")
-    lines.map(lineToString(_)).mkString("   |   |   \n", "\n   |   |\n-----------\n   |   |   \n", "\n   |   |   \n")
+    values.map(lineToString(_)).mkString("   |   |   \n", "\n   |   |\n-----------\n   |   |   \n", "\n   |   |   \n")
   }
 
   protected def structure = values
@@ -40,6 +40,8 @@ object Grid {
   type Value = Option[Token]
   type Line = Seq[Value]
   type LineGrid = Seq[Line]
+
+  var startWithRandom = false
 
   def apply() = new Grid(List(List[Option[Token]](None, None, None),
                               List[Option[Token]](None, None, None),

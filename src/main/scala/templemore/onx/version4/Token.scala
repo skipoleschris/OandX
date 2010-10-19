@@ -3,7 +3,7 @@ package templemore.onx.version4
 /**
  * @author Chris Turner
  */
-trait Token {
+sealed trait Token {
   def flip(): Token
   def symbol(): String
 }
