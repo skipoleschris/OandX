@@ -59,17 +59,8 @@ trait MoveFinder {
     def findPosition(token: Token) = {
       val allEmptyPositions = emptyPositions(linesWithMatchingTokenAndTwoSpaces(token))
       if ( allEmptyPositions.contains(Position(1, 1))) Some(Position(1, 1))
-      else {
-        allEmptyPositions.filter(position => allEmptyPositions.count(_ == position) > 1) match {
-          case Nil => allEmptyPositions match {
-            case Nil => None
-            case x :: xs => {
-              Some(x)
-            }
-          }
-          case x :: xs => Some(x)
-        }
-      }
+      else if ( allEmptyPositions.isEmpty ) None
+      else Some(allEmptyPositions.head)
     }
   }
 
