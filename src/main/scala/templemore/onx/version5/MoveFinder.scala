@@ -8,29 +8,29 @@ trait MoveFinder {
 
   def findBestPosition(token: Token): Option[Position] = {
     // Winning/Blocking Position
-    find.an(emptyPosition).on(first).line(having).one(position).matching(None).and(also).two(positions).matching(Some(token))
-    find.an(emptyPosition).on(first).line(having).one(position).matching(None).and(also).two(positions).matching(Some(token.flip))
+//    find.an(EmptyPosition).on(First).line(Having).one(Position).matching(None).and(Also).two(Positions).matching(Some(token))
+//    find.an(EmptyPosition).on(First).line(Having).one(Position).matching(None).and(Also).two(Positions).matching(Some(token.flip))
 
     // Double Win/Block Position
-    find.an(emptyPosition).shared(by).lines(having).two(positions).matching(None).and(also).one(position).matching(Some(token))
-    find.an(emptyPosition).shared(by).lines(having).two(positions).matching(None).and(also).one(position).matching(Some(token.flip))
+//    find.an(EmptyPosition).shared(By).lines(Having).two(Positions).matching(None).and(Also).one(Position).matching(Some(token))
+//    find.an(EmptyPosition).shared(By).lines(Having).two(Positions).matching(None).and(Also).one(Position).matching(Some(token.flip))
 
     // Double Free Position
-    find.the(emptyMiddlePosition).on(any).line(having).two(positions).matching(None).and(also).one(position).matching(Some(token))
-    find.an(emptyPosition).on(first).line(having).two(positions).matching(None).and(also).one(position).matching(Some(token))
+//    find.the(EmptyMiddlePosition).on(Any).line(Having).two(Positions).matching(None).and(Also).one(Position).matching(Some(token))
+//    find.an(EmptyPosition).on(First).line(Having).two(Positions).matching(None).and(Also).one(Position).matching(Some(token))
 
     // Empty Line Position
     //if ( random && freeSpaces > 5 ) {
-      find.a(randomEmptyPosition).on(any).line(having).all(positions).matching(None)
+//      find.a(RandomEmptyPosition).on(Any).line(Having).all(Positions).matching(None)
     //}
-    find.the(emptyMiddlePosition).on(any).line(having).all(positions).matching(None)
-    find.an(emptyCornerPosition).on(any).line(having).all(positions).matching(None)
-    find.an(emptyPosition).on(first).line(having).all(positions).matching(None)
+//    find.the(EmptyMiddlePosition).on(Any).line(Having).all(Positions).matching(None)
+//    find.an(EmptyCornerPosition).on(Any).line(Having).all(Positions).matching(None)
+//    find.an(EmptyPosition).on(First).line(Having).all(Positions).matching(None)
 
     // Best Empty Position
-    find.the(emptyMiddlePosition).on(any).line(having).any(position).matching(None)
-    find.an(emptyCornerPosition).on(any).line(having).any(position).matching(None)
-    find.an(emptyPosition).on(first).line(having).any(position).matching(None)
+//    find.the(EmptyMiddlePosition).on(Any).line(Having).any(Position).matching(None)
+//    find.an(EmptyCornerPosition).on(Any).line(Having).any(Position).matching(None)
+//    find.an(EmptyPosition).on(First).line(Having).any(Position).matching(None)
 
     None
   }
