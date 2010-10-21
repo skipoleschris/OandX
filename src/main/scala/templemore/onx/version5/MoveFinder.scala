@@ -9,7 +9,16 @@ trait MoveFinder {
   private val moveRules = List(winningPosition _,
                                blockingPosition _,
                                doubleWinPosition _,
-                               doubleBlockPosition _)
+                               doubleBlockPosition _,
+                               doubleFreeMiddlePosition _,
+                               doubleFreePosition _,
+                               randomEmptyLinePosition _,
+                               emptyMiddlePositionOnEmptyLine _,
+                               emptyCornerPositionOnEmptyLine _,
+                               emptyPositionOnEmptyLine _,
+                               emptyMiddlePosition _,
+                               emptyCornerPosition _,
+                               emptyPosition _)
 
   def findBestPosition(token: Token): Option[Position] = findPosition(moveRules, token)
 
@@ -31,26 +40,37 @@ trait MoveFinder {
 
   private def doubleBlockPosition(token: Token) = doubleWinPosition(token.flip)
 
+  private def doubleFreeMiddlePosition(token: Token) =
+    find linesHaving 2 positions Empty and 1 tokenMatching token selectMultiple All take MiddleEmptyPosition
 
-    // Double Free Position
-//    find.the(EmptyMiddlePosition).on(Any).line(Having).two(Positions).matching(None).and(Also).one(Position).matching(Some(token))
-//    find.an(EmptyPosition).on(First).line(Having).two(Positions).matching(None).and(Also).one(Position).matching(Some(token))
+  private def doubleFreePosition(token: Token) =
+    find linesHaving 2 positions Empty and 1 tokenMatching token select First take EmptyPosition
 
-    // Empty Line Position
-    //if ( random && freeSpaces > 5 ) {
-//      find.a(RandomEmptyPosition).on(Any).line(Having).all(Positions).matching(None)
-    //}
-//    find.the(EmptyMiddlePosition).on(Any).line(Having).all(Positions).matching(None)
-//    find.an(EmptyCornerPosition).on(Any).line(Having).all(Positions).matching(None)
-//    find.an(EmptyPosition).on(First).line(Having).all(Positions).matching(None)
+  private def randomEmptyLinePosition(token: Token) = {
+    if ( Grid.randomness && numEmptyPositions > 5 ) {
+      find linesHaving 3 positions Empty selectMultiple All take RandomEmptyPosition
+    }
+    else None
+  }
 
-    // Best Empty Position
-//    find.the(EmptyMiddlePosition).on(Any).line(Having).any(Position).matching(None)
-//    find.an(EmptyCornerPosition).on(Any).line(Having).any(Position).matching(None)
-//    find.an(EmptyPosition).on(First).line(Having).any(Position).matching(None)
+  private def emptyMiddlePositionOnEmptyLine(token: Token) =
+    find linesHaving 3 positions Empty selectMultiple All take MiddleEmptyPosition
 
-//    None
-//  }
+  private def emptyCornerPositionOnEmptyLine(token: Token) =
+    find linesHaving 3 positions Empty selectMultiple All take CornerEmptyPosition
 
+  private def emptyPositionOnEmptyLine(token: Token) =
+    find linesHaving 3 positions Empty selectMultiple All take RandomEmptyPosition
 
+  private def emptyMiddlePosition(token: Token) =
+    find linesHaving AtLeastOne position Empty selectMultiple All take MiddleEmptyPosition
+
+  private def emptyCornerPosition(token: Token) =
+    find linesHaving AtLeastOne position Empty selectMultiple All take CornerEmptyPosition
+
+  private def emptyPosition(token: Token) =
+    find linesHaving AtLeastOne position Empty selectMultiple All take RandomEmptyPosition
+
+  // Provided by grid
+  def numEmptyPositions(): Int
 }

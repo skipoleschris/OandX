@@ -15,8 +15,16 @@ trait LineQueryDSL {
   class ContentMatcher(lines: List[Line]) {
 
     private var count: Int = _
+    private var atLeastOne = false
 
     def linesHaving(count: Int) = { this.count = count; this }
+
+    def linesHaving(rule: MatchRule) = { rule match {
+        case AtLeastOne => atLeastOne = true
+        case _ => throw new IllegalStateException
+      }
+      this
+    }
 
     def tokens(rule: MatchRule) = rule match {
       case Identical => new LineSelector(lines.filter(tokenFrequencies(_).find(_._2 == count).isDefined))
@@ -28,7 +36,10 @@ trait LineQueryDSL {
     def tokensMatching(token: Token) = tokenMatching(token)
 
     def position(rule: MatchRule) = rule match {
-      case Empty => new LineSelector(lines.filter(_.count(_._1 == None) == count))
+      case Empty => {
+        if ( atLeastOne ) new LineSelector(lines.filter(_.count(_._1 == None) > 0))
+        else new LineSelector(lines.filter(_.count(_._1 == None) == count))
+      }
       case _ => throw new IllegalStateException
     }
 
@@ -38,6 +49,7 @@ trait LineQueryDSL {
   sealed trait MatchRule
   case object Identical extends MatchRule
   case object Empty extends MatchRule
+  case object AtLeastOne extends MatchRule
 
   // Selector that picks lines from a supplied list based on some quantity
   // criteria. Also allows multiple content matchers to be chained together
@@ -89,7 +101,10 @@ trait LineQueryDSL {
   class LinesWrapper(lines: List[Line]) {
 
     def take(rule: PositionRule) = rule match {
-      case HighestFrequencyEmptyPosition => highestMultipleFrequency(lines.flatMap(_.filter(_._1 == None).map(_._2)))
+      case HighestFrequencyEmptyPosition => highestMultipleFrequency(emptyPositions(lines))
+      case MiddleEmptyPosition => emptyPositions(lines).find(_ == Position(1, 1))
+      case CornerEmptyPosition => emptyPositions(lines).distinct.find(corner_?(_))
+      case RandomEmptyPosition => random(emptyPositions(lines).distinct)
       case _ => throw new IllegalStateException
     }
   }
@@ -97,6 +112,9 @@ trait LineQueryDSL {
   sealed trait PositionRule
   case object EmptyPosition extends PositionRule
   case object HighestFrequencyEmptyPosition extends PositionRule
+  case object MiddleEmptyPosition extends PositionRule
+  case object CornerEmptyPosition extends PositionRule
+  case object RandomEmptyPosition extends PositionRule
 
   // Helper functions
 
@@ -107,6 +125,14 @@ trait LineQueryDSL {
   }
 
   def tokenFrequency(line: Line, token: Token) = line.map(_._1).count(_ == Some(token))
+
+  def emptyPositions(lines: List[Line]) = lines.flatMap(_.filter(_._1 == None).map(_._2))
+
+  def corner_?(position: Position) = position match {
+    case Position(0, c) if c == 0 || c == 2 => true
+    case Position(2, c) if c == 0 || c == 2 => true
+    case _ => false
+  }
 
   def highestMultipleFrequency[T](items: List[T]): Option[T] = {
     var frequencies = Map[T, Int]()
@@ -121,5 +147,13 @@ trait LineQueryDSL {
 
     if ( max < 2 ) None
     else frequencies.filter(_._2 == max).map(_._1).headOption
+  }
+
+  def random[T](items: List[T]): Option[T] = {
+    if ( items.isEmpty ) None
+    else {
+      val random = new java.util.Random(System.currentTimeMillis)
+      Some(items(random.nextInt(items.size)))
+    }
   }
 }

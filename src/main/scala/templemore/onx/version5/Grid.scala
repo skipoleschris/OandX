@@ -26,6 +26,8 @@ class Grid(tokens: List[Option[Token]]) extends TokensWithPositions
 
   def full_? = !tokens.contains(None)
 
+  def numEmptyPositions = values.count(_._1 == None)
+
   override def toString = {
     def lineToString(line: List[Option[Token]]) = line.map(_ match {
       case Some(t) => t.symbol
@@ -56,6 +58,8 @@ object Grid {
     })
     new Grid(toValues(pattern).toList)
   }
+
+  var randomness = false
 }
 
 trait TokensWithPositions {
