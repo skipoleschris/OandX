@@ -6,9 +6,13 @@ package templemore.onx.version5
 trait LineQueryDSL {
   this: Lines =>
 
-  def find = new ContentMatcher
+  type Line = List[Pair[Option[Token], Position]]
 
-  class ContentMatcher {
+  def find = new ContentMatcher(lines)
+
+  // Matcher that filters lines down to those that have a certain number
+  // of elements matching a particular criteria
+  class ContentMatcher(lines: List[Line]) {
 
     private var count: Int = _
 
@@ -16,137 +20,106 @@ trait LineQueryDSL {
 
     def tokens(rule: MatchRule) = rule match {
       case Identical => new LineSelector(lines.filter(tokenFrequencies(_).find(_._2 == count).isDefined))
+      case _ => throw new IllegalStateException
     }
+
+    def tokenMatching(token: Token) = new LineSelector(lines.filter(tokenFrequency(_, token) == count))
+
+    def tokensMatching(token: Token) = tokenMatching(token)
+
+    def position(rule: MatchRule) = rule match {
+      case Empty => new LineSelector(lines.filter(_.count(_._1 == None) == count))
+      case _ => throw new IllegalStateException
+    }
+
+    def positions(rule: MatchRule) = position(rule)
   }
 
   sealed trait MatchRule
   case object Identical extends MatchRule
+  case object Empty extends MatchRule
 
-  class LineSelector(lines: List[List[Pair[Option[Token], Position]]]) {
+  // Selector that picks lines from a supplied list based on some quantity
+  // criteria. Also allows multiple content matchers to be chained together
+  class LineSelector(lines: List[Line]) {
 
     def select(bound: SelectorBound) = bound match {
-      case First => lines match {
-        case Nil => new LineWrapper(None)
-        case x :: xs => new LineWrapper(Some(x))
-      }
+      case First => new LineWrapper(lines.headOption)
+      case _ => throw new IllegalStateException
     }
+
+    def selectMultiple(bound: SelectorBound) = bound match {
+      case All => new LinesWrapper(lines)
+      case _ => throw new IllegalStateException
+    }
+
+    def and(count: Int) = new ContentMatcher(lines).linesHaving(count)
   }
 
   sealed trait SelectorBound
   case object First extends SelectorBound
+  case object All extends SelectorBound
 
-  class LineWrapper(line: Option[List[Pair[Option[Token], Position]]]) {
+  // Wrapper around a single line that allows tokens or positions to
+  // be extracted based on some defined criteria
+  class LineWrapper(line: Option[Line]) {
 
-    def takeToken(index: Int): Option[Token] = line match {
+    def takeToken(index: Int) = line match {
       case Some(l) => {
         val tokens = l.map(_._1).filter(_ != None)
         if ( tokens.length >= index ) tokens(index - 1) else None
       }
       case _ => None
     }
+
+    def take(rule: PositionRule) = rule match {
+      case EmptyPosition => line match {
+        case Some(l) => l.find(_._1 == None) match {
+          case Some(e) => Some(e._2)
+          case _ => None
+        }
+        case _ => None
+      }
+      case _ => throw new IllegalStateException
+    }
   }
 
-  def tokenFrequencies(line: List[Pair[Option[Token], Position]]) = {
+  // Wrapper around a number of lines that allows tokens or positions to
+  // be extracted based on some defined criteria
+  class LinesWrapper(lines: List[Line]) {
+
+    def take(rule: PositionRule) = rule match {
+      case HighestFrequencyEmptyPosition => highestMultipleFrequency(lines.flatMap(_.filter(_._1 == None).map(_._2)))
+      case _ => throw new IllegalStateException
+    }
+  }
+
+  sealed trait PositionRule
+  case object EmptyPosition extends PositionRule
+  case object HighestFrequencyEmptyPosition extends PositionRule
+
+  // Helper functions
+
+  def tokenFrequencies(line: Line) = {
     Map(Some(Nought) -> line.count(_._1 == Some(Nought)),
         Some(Cross) -> line.count(_._1 == Some(Cross)),
         None -> line.count(_._1 == None))
   }
 
-//  def firstLine(lines: List[List[Pair[Option[Token], Position]]]) = lines match {
-//    case Nil => None
-//    case x :: xs => Some(x)
-//  }
+  def tokenFrequency(line: Line, token: Token) = line.map(_._1).count(_ == Some(token))
 
-//  def find = new SingleResultFilter
-//
-//
-//  // Helper functions
-//  private def queryAllTokens(lines: List[List[Pair[Option[Token], Position]]]) = lines.flatMap(_.map(_._1))
-//
-//  private def queryFirst[T](items: List[T]): Option[T] = items.filter(_ != None) match {
-//    case Nil => None
-//    case x :: xs => Some(x)
-//  }
-//
-//  // Filter that extracts the correct information from the result
-//  class SingleResultFilter {
-//
-//    def the(filter: ResultFilter) = chain(filter)
-//    def a(filter: ResultFilter) = chain(filter)
-//    def an(filter: ResultFilter) = chain(filter)
-//
-//      //case token => (lines: List[List[Pair[Option[Token], Position]]]) => { queryAllTokens(lines) }
-//    private[this] def chain(filter: ResultFilter) = filter match {
-//      case Token => new LineContentFilter[Token]((lines: List[List[Pair[Option[Token], Position]]]) => { queryFirst(queryAllTokens(lines)) getOrElse None })
-//      case EmptyPosition => new LineContentFilter[Position]((lines: List[List[Pair[Option[Token], Position]]]) => { None })
-//      case EmptyMiddlePosition => new LineContentFilter[Position]((lines: List[List[Pair[Option[Token], Position]]]) => { None })
-//      case EmptyCornerPosition => new LineContentFilter[Position]((lines: List[List[Pair[Option[Token], Position]]]) => { None })
-//      case RandomEmptyPosition => new LineContentFilter[Position]((lines: List[List[Pair[Option[Token], Position]]]) => { None })
-//    }
-//  }
-//
-//  sealed trait ResultFilter
-//  case object Token extends ResultFilter
-//  case object EmptyPosition extends ResultFilter
-//  case object EmptyMiddlePosition extends ResultFilter
-//  case object EmptyCornerPosition extends ResultFilter
-//  case object RandomEmptyPosition extends ResultFilter
-//
-//  // Filter that extracts the correct set of lines from the result
-//  class LineContentFilter[T](chain: (List[List[Pair[Option[Token], Position]]]) => Option[T]) {
-//
-//    def on(filter: LineSelector) = filter match {
-//      case First => new LineFilter[T]((lines: List[List[Pair[Option[Token], Position]]]) => { chain(List(queryFirst(lines) getOrElse List())) })
-//      case Any => new LineFilter[T]((lines: List[List[Pair[Option[Token], Position]]]) => { chain(lines) })
-//  }
-//    def shared(filter: SharingSelector) = new LineFilter[T]((lines: List[List[Pair[Option[Token], Position]]]) => { chain(lines) })
-//  }
-//
-//  sealed trait LineSelector
-//  case object First extends LineSelector
-//  case object Any extends LineSelector
-//  sealed trait SharingSelector
-//  case object By extends SharingSelector
-//
-//  // Filter that picks lines matching a given criteria
-//  class LineFilter[T](chain: (List[List[Pair[Option[Token], Position]]]) => Option[T]) {
-//
-//    def line(filter: HavingTrait) = new PositionMatcher[T](chain)
-//    def lines(filter: HavingTrait) = new PositionMatcher[T](chain)
-//  }
-//
-//  sealed trait HavingTrait
-//  case object Having extends HavingTrait
-//
-//
-//  // Matcher that defines the positions being matched on
-//  class PositionMatcher[T](chain: (List[List[Pair[Option[Token], Position]]]) => Option[T]) {
-//
-//    def one(position: PositionTrait) = new TokenMatcher[T]
-//    def two(position: PositionTrait) = new TokenMatcher[T]
-//    def all(position: PositionTrait) = new TokenMatcher[T]
-//    def any(position: PositionTrait) = new TokenMatcher[T]
-//  }
-//
-//  sealed trait PositionTrait
-//  case object Position extends PositionTrait
-//  case object Positions extends PositionTrait
-//
-//   // Matcher that matches a specific token
-//  class TokenMatcher[T] {
-//
-//    def matching(token: Option[Token]) = new AppendingMatcher[T]
-//    def identical = () => new AppendingMatcher[T]
-//  }
-//
-//  // Appending matcher
-//  class AppendingMatcher[T] {
-//
-//    def go(): Option[T] = None
-//    def and(pattern: AlsoTrait) = new PositionMatcher((x: List[List[Pair[Option[Token], Position]]]) => { None })
-//
-//  }
-//
-//  sealed trait AlsoTrait
-//  case object Also extends AlsoTrait
+  def highestMultipleFrequency[T](items: List[T]): Option[T] = {
+    var frequencies = Map[T, Int]()
+    items.foreach { item =>
+      var count = 1
+      if ( frequencies.contains(item) ) count = count + frequencies(item)
+      frequencies = frequencies + Pair(item, count)
+    }
+
+    var max = 0
+    frequencies.foreach(entry => if (entry._2 > max) max = entry._2)
+
+    if ( max < 2 ) None
+    else frequencies.filter(_._2 == max).map(_._1).headOption
+  }
 }

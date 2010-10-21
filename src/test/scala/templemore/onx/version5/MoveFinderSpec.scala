@@ -1,7 +1,7 @@
 package templemore.onx.version5
 
-import org.scalatest.matchers.MustMatchers
 import org.scalatest. {FeatureSpec, GivenWhenThen}
+import org.scalatest.matchers. {ShouldMatchers, MustMatchers}
 
 /**
  * @author Chris Turner
@@ -101,11 +101,15 @@ class MoveFinderSpec extends FeatureSpec with GivenWhenThen with MustMatchers {
                          |-O-
                          |--X""".stripMargin)
 
+      and("a set of valid possible positions")
+      val possiblePositions = Set(Position(1, 0), Position(2, 0))
+
       when("the best position is requested")
       val position = grid.findBestPosition(Nought)
 
       then("a blocking position shold be found")
-      position must be (Some(Position(1, 0)))
+      position must not be (None)
+      possiblePositions must contain (position.get)
     }
 
     // Test to find that if we can't find a double win spot that we can block out opponent
@@ -117,11 +121,15 @@ class MoveFinderSpec extends FeatureSpec with GivenWhenThen with MustMatchers {
                          |-O-
                          |--X""".stripMargin)
 
+      and("a set of valid possible positions")
+      val possiblePositions = Set(Position(1, 0), Position(2, 0))
+
       when("the best position is requested")
       val position = grid.findBestPosition(Cross)
 
       then("a blocking position shold be found")
-      position must be (Some(Position(1, 0)))
+      position must not be (None)
+      possiblePositions must contain (position.get)
     }
 
     // Tests to find that when there are no win or block options that we pick the best
