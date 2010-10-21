@@ -50,6 +50,8 @@ immutable data and a DSL
 
 Version 6
 ---------
-An advanced Scala implementation that also adds Actors into the mix
+An implementation that takes the code from version 5 and adds Actors into the mix. Noughts and crosses
+isn't a very good example for concurrency as it's turn based model makes it a serial execution
+path, but this code just shows how to use actors to decouple elements of a system using message passing.
 
 
