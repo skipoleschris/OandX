@@ -3,7 +3,7 @@ package templemore.onx.version6
 /**
  * @author Chris Turner
  */
-object OandX {
+object OandXVersion6 {
 
   def main(args: Array[String]) {
     Grid.randomness = true

@@ -5,7 +5,7 @@ import Token._
 /**
  * @author Chris Turner
  */
-object OandX {
+object OandXVersion3 {
 
   def main(args: Array[String]) {
     val grid = new Grid

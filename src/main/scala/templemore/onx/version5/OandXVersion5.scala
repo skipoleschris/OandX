@@ -1,12 +1,12 @@
-package templemore.onx.version4
+package templemore.onx.version5
 
 /**
  * @author Chris Turner
  */
-object OandX {
+object OandXVersion5 {
 
   def main(args: Array[String]) {
-    Grid.startWithRandom = true
+    Grid.randomness = true
     var grid = Grid()
     var token: Token = Nought
 
