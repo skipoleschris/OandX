@@ -2,9 +2,7 @@
   <library name="Testing">
     <CLASSES>
       <root url="jar://$IVY2_REPOSITORY$/cache/org.scalatest/scalatest/jars/scalatest-1.2.jar!/" />
-      <root url="jar://$IVY2_REPOSITORY$/cache/org.mockito/mockito-all/jars/mockito-all-1.8.5.jar!/" />
       <root url="jar://$MAVEN_REPOSITORY$/org/testng/testng/5.10/testng-5.10-jdk15.jar!/" />
-      <root url="jar://$MAVEN_REPOSITORY$/org/hamcrest/hamcrest-all/1.1/hamcrest-all-1.1.jar!/" />
     </CLASSES>
     <JAVADOC />
     <SOURCES />

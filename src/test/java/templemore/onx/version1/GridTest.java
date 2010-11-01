@@ -2,10 +2,6 @@ package templemore.onx.version1;
 
 import org.testng.annotations.Test;
 
-import static org.hamcrest.CoreMatchers.equalTo;
-import static org.hamcrest.CoreMatchers.nullValue;
-import static org.hamcrest.MatcherAssert.assertThat;
-
 /**
  * @author Chris Turner
  */
@@ -17,17 +13,17 @@ public class GridTest {
 
         for ( int row = 0; row < Grid.HEIGHT; row++ ) {
             for ( int col = 0; col < Grid.WIDTH; col++ ) {
-                assertThat(grid.getToken(new Position(row, col)), nullValue());
+                assert(grid.getToken(new Position(row, col)) == null);
             }
         }
-        assertThat(grid.isFull(), equalTo(false));
+        assert(grid.isFull() == false);
     }
 
     public void testAddToken() {
         final Grid grid = new Grid();
 
         grid.addToken(Grid.MIDDLE, Token.nought);
-        assertThat(grid.getToken(Grid.MIDDLE), equalTo(Token.nought));
+        assert(grid.getToken(Grid.MIDDLE).equals(Token.nought));
     }
 
     public void testPartFilledGridNotFull() {
@@ -36,7 +32,7 @@ public class GridTest {
         grid.addToken(Grid.MIDDLE, Token.nought);
         grid.addToken(Grid.TOP_LEFT, Token.nought);
         grid.addToken(Grid.BOTTOM_RIGHT, Token.nought);
-        assertThat(grid.isFull(), equalTo(false));
+        assert(grid.isFull() == false);
     }
 
     public void testFullGrid() {
@@ -47,7 +43,7 @@ public class GridTest {
                 grid.addToken(new Position(row, col), Token.nought);
             }
         }
-        assertThat(grid.isFull(), equalTo(true));
+        assert(grid.isFull());
     }
 
     @Test (expectedExceptions = IllegalStateException.class)
@@ -85,14 +81,14 @@ public class GridTest {
     public void tesBuildingAGridFromAString() {
         final Grid grid = Grid.build("O X\nXOO\n  X");
 
-        assertThat(grid.getToken(Grid.TOP_LEFT), equalTo(Token.nought));
-        assertThat(grid.isPositionOccupied(Grid.TOP_MIDDLE), equalTo(false));
-        assertThat(grid.getToken(Grid.TOP_RIGHT), equalTo(Token.cross));
-        assertThat(grid.getToken(Grid.MIDDLE_LEFT), equalTo(Token.cross));
-        assertThat(grid.getToken(Grid.MIDDLE), equalTo(Token.nought));
-        assertThat(grid.getToken(Grid.MIDDLE_RIGHT), equalTo(Token.nought));
-        assertThat(grid.isPositionOccupied(Grid.BOTTOM_LEFT), equalTo(false));
-        assertThat(grid.isPositionOccupied(Grid.BOTTOM_MIDDLE), equalTo(false));
-        assertThat(grid.getToken(Grid.BOTTOM_RIGHT), equalTo(Token.cross));
+        assert(grid.getToken(Grid.TOP_LEFT).equals(Token.nought));
+        assert(grid.isPositionOccupied(Grid.TOP_MIDDLE) == false);
+        assert(grid.getToken(Grid.TOP_RIGHT).equals(Token.cross));
+        assert(grid.getToken(Grid.MIDDLE_LEFT).equals(Token.cross));
+        assert(grid.getToken(Grid.MIDDLE).equals(Token.nought));
+        assert(grid.getToken(Grid.MIDDLE_RIGHT).equals(Token.nought));
+        assert(grid.isPositionOccupied(Grid.BOTTOM_LEFT) == false);
+        assert(grid.isPositionOccupied(Grid.BOTTOM_MIDDLE) == false);
+        assert(grid.getToken(Grid.BOTTOM_RIGHT).equals(Token.cross));
     }
 }
