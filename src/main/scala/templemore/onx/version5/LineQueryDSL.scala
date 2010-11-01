@@ -8,6 +8,8 @@ trait LineQueryDSL {
 
   type Line = List[Pair[Option[Token], Position]]
 
+  private val random = new java.util.Random(System.currentTimeMillis)
+
   def find = new ContentMatcher(lines)
 
   // Matcher that filters lines down to those that have a certain number
@@ -118,42 +120,38 @@ trait LineQueryDSL {
 
   // Helper functions
 
-  def tokenFrequencies(line: Line) = {
+  private def tokenFrequencies(line: Line) = {
     Map(Some(Nought) -> line.count(_._1 == Some(Nought)),
         Some(Cross) -> line.count(_._1 == Some(Cross)),
         None -> line.count(_._1 == None))
   }
 
-  def tokenFrequency(line: Line, token: Token) = line.map(_._1).count(_ == Some(token))
+  private def tokenFrequency(line: Line, token: Token) = line.map(_._1).count(_ == Some(token))
 
-  def emptyPositions(lines: List[Line]) = lines.flatMap(_.filter(_._1 == None).map(_._2))
+  private def emptyPositions(lines: List[Line]) = lines.flatMap(_.filter(_._1 == None).map(_._2))
 
-  def corner_?(position: Position) = position match {
+  private def corner_?(position: Position) = position match {
     case Position(0, c) if c == 0 || c == 2 => true
     case Position(2, c) if c == 0 || c == 2 => true
     case _ => false
   }
 
-  def highestMultipleFrequency[T](items: List[T]): Option[T] = {
-    var frequencies = Map[T, Int]()
-    items.foreach { item =>
-      var count = 1
-      if ( frequencies.contains(item) ) count = count + frequencies(item)
-      frequencies = frequencies + Pair(item, count)
+  private def highestMultipleFrequency[T](items: List[T]): Option[T] = {
+    def freq(acc: Map[T, Int], item: T) = acc.contains(item) match {
+      case true => acc + Pair(item, acc(item) + 1)
+      case _ => acc + Pair(item, 1)
     }
-
-    var max = 0
-    frequencies.foreach(entry => if (entry._2 > max) max = entry._2)
-
-    if ( max < 2 ) None
-    else frequencies.filter(_._2 == max).map(_._1).headOption
+    def mostFrequent(frequencies: Map[T, Int], minCount: Int = 2) = {
+      frequencies.find(_._2 == frequencies.values.max) match {
+        case Some((value, count)) if count >= minCount => Some(value)
+        case _ => None
+      }
+    }
+    mostFrequent(items.foldLeft(Map[T, Int]())(freq))
   }
 
-  def random[T](items: List[T]): Option[T] = {
-    if ( items.isEmpty ) None
-    else {
-      val random = new java.util.Random(System.currentTimeMillis)
-      Some(items(random.nextInt(items.size)))
-    }
+  private def random[T](items: List[T]): Option[T] = items match {
+    case Nil => None
+    case xs => Some(items(random.nextInt(items.size)))
   }
 }

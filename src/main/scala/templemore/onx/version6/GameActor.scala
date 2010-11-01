@@ -1,6 +1,7 @@
 package templemore.onx.version6
 
 import actors.Actor
+import templemore.onx.version5.Token
 
 /**
  * @author Chris Turner

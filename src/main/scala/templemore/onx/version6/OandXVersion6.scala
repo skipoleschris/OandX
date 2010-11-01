@@ -1,5 +1,7 @@
 package templemore.onx.version6
 
+import templemore.onx.version5. {Grid, Cross, Nought}
+
 /**
  * @author Chris Turner
  */
