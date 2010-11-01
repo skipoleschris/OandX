@@ -137,17 +137,22 @@ trait LineQueryDSL {
   }
 
   private def highestMultipleFrequency[T](items: List[T]): Option[T] = {
-    def freq(acc: Map[T, Int], item: T) = acc.contains(item) match {
+    type Frequencies = Map[T, Int]
+    type Frequency = Pair[T, Int]
+
+    def freq(acc: Frequencies, item: T) = acc.contains(item) match {
       case true => acc + Pair(item, acc(item) + 1)
       case _ => acc + Pair(item, 1)
     }
-    def mostFrequent(frequencies: Map[T, Int], minCount: Int = 2) = {
-      frequencies.find(_._2 == frequencies.values.max) match {
-        case Some((value, count)) if count >= minCount => Some(value)
-        case _ => None
-      }
+    def mostFrequent(acc: Option[Frequency], item: Frequency) = acc match {
+      case None if item._2 >= 2 => Some(item)
+      case Some((value, count)) if item._2 > count => Some(item)
+      case _ => acc
     }
-    mostFrequent(items.foldLeft(Map[T, Int]())(freq))
+    items.foldLeft(Map[T, Int]())(freq).foldLeft[Option[Frequency]](None)(mostFrequent) match {
+      case Some((value, count)) => Some(value)
+      case _ => None
+    }
   }
 
   private def random[T](items: List[T]): Option[T] = items match {
